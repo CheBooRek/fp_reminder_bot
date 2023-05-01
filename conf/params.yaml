@@ -1,0 +1,29 @@
+bot:
+  name: fp_reminder_bot
+  job_schedule: # every 20th day of month in 17:05 
+    trigger: cron
+    day: 20
+    hour: 17
+    minute: 5
+  notification_message: >
+    Привет, %USERNAME%! Сегодня {dt}, и пора передать показания счетчиков
+     - МОЭК (отопление):
+       Передача на сайте https://online.moek.ru/person/peredacha-pokazaniya.html
+       Лицевой счет: XXX, номер квартиры: XXX
+       Передаем ГВС и Теплосчетчик
+
+     - Мосводоканал (водоснабжение):
+       Передача через ТГ бота https://t.me/mosvodokanalBot
+       Номер абонента: XXX
+       Передаем ХВС (XXX) и ГВС (XXX), целое число!
+  start_message: >
+    Добро пожаловать, {user_full_name}!
+    Бот-напоминалка по передаче показаний счетчиков
+    Команды:
+     /start, /help - выводит данное сообщение
+    Ближайшее напоминание:
+     {dt_scheduled}
+
+paths:
+  log_path: logs/bot.log
+  id_list_path: conf/id_list
