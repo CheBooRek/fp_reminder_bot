@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  app:
+    image: tg_housing_bot:0.1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
+    environment:
+      TG_BOT_TOKEN: $TG_BOT_TOKEN
